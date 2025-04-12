@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Card Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #greeting {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Your Greeting Card</h2>
+        <input type="text" placeholder="Enter your name" id="name">
+        <select id="event">
+            <option value="">Select an event</option>
+            <option value="birthday">Birthday</option>
+            <option value="anniversary">Anniversary</option>
+            <option value="wedding">Wedding</option>
+            <option value="graduation">Graduation</option>
+        </select>
+        <button onclick="generateGreeting()">Generate Greeting</button>
+        <div id="greeting"></div>
+    </div>
+
+    <script>
+        function generateGreeting() {
+            const name = document.getElementById('name').value;
+            const event = document.getElementById('event').value;
+            
+            if (!name || !event) {
+                alert('Please enter your name and select an event');
+                return;
+            }
+
+            const greetings = {
+                'birthday': 'Happy Birthday',
+                'anniversary': 'Happy Anniversary',
+                'wedding': 'Congratulations on your Wedding',
+                'graduation': 'Congratulations on your Graduation'
+            };
+
+            const greeting = greetings[event] || 'Hello';
+            document.getElementById('greeting').innerHTML = `${greeting}, ${name}! 🎉`;
+        }
+    </script>
+</body>
+</html> 

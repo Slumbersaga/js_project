@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click counte</title>
+    <style>
+        button{
+            padding: 20px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 40px;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            margin: 0;
+        }
+        .display{
+            text-align: center;
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3 class="display" id="dis">Display</h3>
+<div class="container">
+    <div class="add">
+        <button onclick="add()">Add One</button>
+    </div>
+    <div class="reset">
+        <button onclick="reset()">Reset</button>
+    </div>
+    <div class="minus">
+            <button onclick="minus()">Minus one</button>
+    </div>
+</div>
+
+
+    <script>
+        var x = 0;
+
+        function add(){
+            x = x+1;
+            document.getElementById('dis').innerHTML = x;
+        }
+        function reset(){
+            x = 0;
+            document.getElementById('dis').innerHTML = x;
+        } 
+        function minus(){
+            x=x-1;
+            document.getElementById('dis').innerHTML = x;   
+        }
+    </script>
+</body>
+</html>
